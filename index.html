@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image-overlay-editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>image-overlay-editor</h1>
+        
+        <div class="editor-area">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="overlayText">テキスト:</label>
+                    <input type="text" id="overlayText" placeholder="例: © 2025 著作権者名" value="© 2025 著作権者名">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontSize">フォントサイズ:</label>
+                    <input type="number" id="fontSize" min="8" max="72" value="24">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontFamily">フォント:</label>
+                    <select id="fontFamily">
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                        <option value="Impact, sans-serif">Impact</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="textColor">テキスト色:</label>
+                    <div class="color-picker">
+                        <div class="color-preview" id="colorPreview"></div>
+                        <input type="color" id="textColor" value="#ffffff">
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="textOpacity">不透明度 (0-100):</label>
+                    <input type="number" id="textOpacity" min="0" max="100" value="100">
+                </div>
+            </div>
+            
+            <div class="canvas-container empty" id="canvasContainer">
+                <input type="file" id="imageInput" accept="image/*" class="hidden-input">
+                <canvas id="imageCanvas"></canvas>
+                <div id="textOverlay">
+                    © 2025 著作権者名
+                    <div class="resizer ne"></div>
+                    <div class="resizer se"></div>
+                    <div class="resizer sw"></div>
+                    <div class="resizer nw"></div>
+                </div>
+                <div class="dropzone-message">
+                    <p>ここに画像をドラッグ＆ドロップ</p>
+                    <p>またはクリックしてファイルを選択</p>
+                </div>
+            </div>
+            
+            <div class="download-area">
+                <button id="saveButton">画像を保存</button>
+                <button id="clearButton">画像をクリア</button>
+            </div>
+            
+            <div class="instructions">
+                <p><strong>使い方:</strong></p>
+                <ul>
+                    <li>画像エリアをクリックまたはドラッグ＆ドロップして画像を選択できます</li>
+                    <li>テキストを入力し、スタイルを調整します</li>
+                    <li>テキストをドラッグして位置を調整できます</li>
+                    <li>角のハンドルをドラッグしてサイズを変更できます</li>
+                    <li>「画像を保存」ボタンを押して完成した画像をダウンロードします</li>
+                    <li>「画像をクリア」ボタンで現在の画像を削除できます</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
